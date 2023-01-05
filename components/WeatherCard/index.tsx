@@ -13,7 +13,7 @@ interface WeatherCardProps {
 
 export default function WeatherCard({ mainTemp, mainTempTitle, humidity, visibility, clouds, icon }: WeatherCardProps): JSX.Element {
     
-    const loaderIcon = (): string => `http://openweathermap.org/img/wn/${icon}@2x.png`
+    const loaderIcon = (): string => `https://openweathermap.org/img/wn/${icon}@2x.png`
 
     return (
         <>
