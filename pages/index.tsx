@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useCallback, useState } from 'react'
 import { useEffect } from 'react'
 import { getCurrentWeather } from './weatherService'
 import PageLayout from '../components/PageLayout'
@@ -23,7 +23,7 @@ export default function Home() {
     const [cities, setCities] = useState<ICities[]>(initialCities)
     const [selectedCity, setSelectedCity] = useState<string>('medellin')
 
-    const fetchCurrentWeather = (selectedCity: string): void => {
+    useEffect(() => {
         getCurrentWeather(selectedCity)
         .then(res => {
             setMainTemp(calculateCelsius(res.main.temp))
@@ -33,10 +33,6 @@ export default function Home() {
             setMainTempTitle(res.weather[0].main)
             setIcon(res.weather[0].icon)
         })
-    }
-
-    useEffect(() => {
-        fetchCurrentWeather(selectedCity)
     }, [selectedCity])
 
     const handleSelectCity = (e: ChangeEvent<HTMLSelectElement>): void => setSelectedCity(e.target.value) 
