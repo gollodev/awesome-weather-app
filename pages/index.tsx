@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback, useState } from 'react'
 import { useEffect } from 'react'
-import { getCurrentWeather } from './weatherService'
+import { getCurrentWeather } from '../services/weatherService'
 import PageLayout from '../components/PageLayout'
 import UISelect from '../components/UISelect'
 import WeatherCard from '../components/WeatherCard'
